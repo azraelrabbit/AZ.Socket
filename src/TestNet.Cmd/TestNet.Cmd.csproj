@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+	</PropertyGroup>
+
+
+	<!-- .NET Standard 2.0 references, compilation flags and build options -->
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+		<!--<PackageReference Include="System.Data.SqlClient" Version="4.4.0-preview1-25305-02" />-->
+
+		<PackageReference Include="Mapster" version="7.2.0" />
+		<PackageReference Include="Mapster.Core" version="1.2.0" />
+		<PackageReference Include="Newtonsoft.Json" version="13.0.1" />
+	</ItemGroup>
+
+
+
+
+	<!-- .NET 4.0 references, compilation flags and build options -->
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+		<Reference Include="mscorlib" />
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Drawing" />
+		<Reference Include="System.Security" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Configuration" />
+
+		<PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168" />
+		<PackageReference Include="Mapster" version="7.2.0" targetFramework="net40" />
+		<PackageReference Include="Mapster.Core" version="1.2.0" targetFramework="net40" />
+		<PackageReference Include="Newtonsoft.Json" version="13.0.1" targetFramework="net40" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AZ.Socket\AZ.TcpNet.csproj" />
+	</ItemGroup>
+
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net40'">
+		<DefineConstants>NET40;NETFULL</DefineConstants>
+	</PropertyGroup>
+
+</Project>
